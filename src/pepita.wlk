@@ -17,8 +17,18 @@ object pepita {
 	
 	method volaHacia(unaCiudad) {
 		if (ciudad != unaCiudad) {
-			self.move(unaCiudad.posicion())
-			ciudad = unaCiudad
+		
+			if((energia - self.energiaParaVolar(posicion.distance(unaCiudad.posicion()))>0)){ //Esta linea es un poco redundante
+																							  //con la del metodo move, probablemente
+				self.move(unaCiudad.posicion())												  //se podria mejorar
+				ciudad = unaCiudad
+		
+			}else{
+				game.say(self,"No tengo energia, dame de comer")
+			}
+
+		}else{
+			game.say(self,"Ya estoy en "+unaCiudad+".")
 		}
 	}
 
