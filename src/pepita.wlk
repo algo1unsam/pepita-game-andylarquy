@@ -4,15 +4,19 @@ import ciudades.*
 object pepita {
 	var property energia = 100
 	var property ciudad = buenosAires 
-
-	var rand1
-	var rand2
-
+	var imag = "pepita1.png"
+	
+	
 	var property posicion = game.at(3,3)
-	method imagen() = "pepita.png"
+	method imagen() = imag
 
 	method come(comida) {
 		energia = energia + comida.energia()
+		if (energia < 10){self.pepitaFlaca()
+			
+		}else if(energia > 100){self.pepitaGorda()}else{
+			self.pepitaNormal()
+		}
 	}
 	
 	method volaHacia(unaCiudad) {
@@ -37,6 +41,12 @@ object pepita {
 	method move(nuevaPosicion) {
 		energia -= self.energiaParaVolar(posicion.distance(nuevaPosicion))
 		self.posicion(nuevaPosicion)
+		
+		if (energia < 10){self.pepitaFlaca()
+			
+		}else if(energia > 100){self.pepitaGorda()}else{
+			self.pepitaNormal()
+		}
 	}	
 
 	method teEncontraron(){
@@ -54,5 +64,22 @@ object pepita {
 		
 	}
 
+
+	method pepitaFlaca(){
+		
+		imag = "pepita.png"
+				
+	}
+	
+	method pepitaGorda(){
+		
+		imag = "pepita2.png"
+				
+	}
+	
+	method pepitaNormal(){
+		
+		imag = "pepita1.png"
+	}
 
 }

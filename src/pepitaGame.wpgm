@@ -27,7 +27,6 @@ program PepitaGame {
 	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
 	
-	
 	keyboard.a().onPressDo {
 	
 		if(com_alp){	
