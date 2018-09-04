@@ -42,13 +42,11 @@ object pepita {
 	method teEncontraron(){
 		
 		
-		rand1 = 5	//Debería ser una posicion aleatoria pero no encontre
-		rand2 = 3	//una funcion que retorne un entero aleatorio 
 		
 		if (roque.queTenes() != null){
 			
 			self.come(roque.queTenes())
-			game.addVisualIn(roque.queTenes(),game.at(rand1,rand2))
+			game.addVisualIn(roque.queTenes(),game.at(1.randomUpTo(9),1.randomUpTo(9)))
 			roque.tenesNuevo(null)
 			
 		}
